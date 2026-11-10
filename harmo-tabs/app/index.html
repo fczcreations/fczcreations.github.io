@@ -1625,7 +1625,7 @@ function renderTracks(){
   $("track").value=S.stream;
 }
 const WIN_URL="https://github.com/fczcreations/fczcreations.github.io/releases/download/windows/Harmo-Tabs-portable.exe";
-const DONATE_URL=window.HARMO_DONATE_URL||"";     // lien de don (Ko-fi…), vide = bouton caché
+const DONATE_URL=window.HARMO_DONATE_URL||"https://ko-fi.com/fczcreations";     // lien de don (masqué sur Android)
 function isPro(){try{return!!(window.harmonicaNative&&window.harmonicaNative.isPremium&&window.harmonicaNative.isPremium())}catch(e){return false}}
 function canExcel(){const p=platform();return p==="desktop"||(p==="android"&&isPro())}
 function canC16(){return canExcel()}
