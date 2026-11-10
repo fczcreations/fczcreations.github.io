@@ -24,6 +24,11 @@ jobs:
         run: npm ci
       - name: Compilation de Harmo-Tabs-portable.exe
         run: npx electron-builder --config electron-builder.json --win portable --x64 --publish never
+      - name: Étiquette « windows » sur la version compilée
+        working-directory: .
+        run: |
+          git tag -f windows
+          git push -f origin refs/tags/windows
       - name: Publication (lien de téléchargement fixe)
         uses: softprops/action-gh-release@v2
         with:
