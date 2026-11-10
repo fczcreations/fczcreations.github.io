@@ -1,0 +1,34 @@
+name: Version Windows
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'desktop/**', '.github/workflows/windows.yml' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: desktop
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Dépendances
+        run: npm ci
+      - name: Compilation de Harmo-Tabs-portable.exe
+        run: npx electron-builder --config electron-builder.json --win portable --x64 --publish never
+      - name: Publication (lien de téléchargement fixe)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: windows
+          name: "Harmo Tabs pour Windows (version portable)"
+          body: "Version portable : aucune installation. Double-cliquez sur Harmo-Tabs-portable.exe. Compilation n°${{ github.run_number }}."
+          make_latest: true
+          files: desktop/dist/Harmo-Tabs-portable.exe

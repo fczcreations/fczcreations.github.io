@@ -1,0 +1,8 @@
+{
+ "name": "harmo-tabs",
+ "productName": "Harmo Tabs",
+ "version": "1.0.0",
+ "description": "Convertit un fichier MIDI ou KAR en tablature d'harmonica (PDF et Excel)",
+ "author": "FCZ creations",
+ "main": "main.js"
+}

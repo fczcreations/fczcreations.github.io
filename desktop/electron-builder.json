@@ -1,0 +1,10 @@
+{
+  "appId": "fr.fczcreations.tablatures",
+  "productName": "Harmo Tabs",
+  "copyright": "© 2026 FCZ creations",
+  "directories": { "app": "app", "output": "dist", "buildResources": "build" },
+  "electronVersion": "33.2.1",
+  "compression": "maximum",
+  "win": { "target": [{ "target": "portable", "arch": ["x64"] }], "icon": "build/icon.ico" },
+  "portable": { "artifactName": "Harmo-Tabs-portable.exe", "unpackDirName": "HarmoTabs" }
+}

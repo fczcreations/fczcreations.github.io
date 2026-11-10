@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /desktop/
+
+Sitemap: https://fczcreations.github.io/sitemap.xml
