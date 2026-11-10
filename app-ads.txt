@@ -1,3 +1,0 @@
-# Fichier app-ads.txt de FCZ creations (AdMob).
-# Remplacer la ligne suivante par celle fournie par AdMob (Applications > app-ads.txt), puis retirer le #.
-# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

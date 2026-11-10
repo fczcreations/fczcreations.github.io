@@ -25,8 +25,8 @@ function creerFenetre() {
       item.once('done', (e, etat) => { if (etat === 'completed') shell.openPath(chemin); });
     } else item.cancel();
   });
-  win.webContents.setWindowOpenHandler(({ url }) => { if (/^https?:/.test(url)) shell.openExternal(url); return { action: 'deny' }; });
-  win.webContents.on('will-navigate', e => e.preventDefault());
+  win.webContents.setWindowOpenHandler(({ url }) => { if (/^(https?|mailto):/.test(url)) shell.openExternal(url); return { action: 'deny' }; });
+  win.webContents.on('will-navigate', (e, url) => { e.preventDefault(); if (/^mailto:/.test(url)) shell.openExternal(url); });
   win.on('focus', () => win.webContents.send('fonts:changed'));   // revérifie si on a installé les polices entre-temps
   win.loadFile(path.join(__dirname, 'index.html'));
 }

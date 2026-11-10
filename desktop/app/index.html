@@ -60,6 +60,7 @@ select:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid 
 .seg button[aria-pressed="true"] .probadge{background:var(--accent-ink);color:var(--accent)}
 .donate{display:flex;flex-direction:column;gap:6px;font-size:.84rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
 .donate .btn{text-align:center;text-decoration:none;color:var(--ink)}
+.promo{display:flex;flex-wrap:wrap;gap:6px}.promo .btn{flex:1 1 auto;padding:5px 10px;font-size:.84rem}
 .msg a{color:var(--accent);font-weight:600}
 .headrow{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
 .headrow h1{min-width:0}
@@ -198,8 +199,10 @@ select:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid 
     <div class="export">
       <button type="button" class="btn primary" id="dlPdf">Télécharger le PDF</button>
       <button type="button" class="btn" id="dlXlsx">Télécharger le fichier Excel (.xlsx)</button>
-      <div class="donate" id="donateBox" hidden><span data-i18n="donate.text">Harmo Tabs est gratuit.</span><a class="btn" id="donateBtn" href="#" target="_blank" rel="noopener" data-i18n="donate.btn">Soutenir Harmo Tabs (don)</a></div>
       <div class="msg" id="msg" role="status"></div>
+      <div class="donate" id="promoBox"><span data-i18n="promo.text">Harmo Tabs vous plaît ? Faites-le connaître :</span>
+        <div class="promo"><button type="button" class="btn" id="rateBtn" hidden data-i18n="promo.rate">★ Noter l'appli</button><button type="button" class="btn" id="shareAppBtn" data-i18n="promo.share">Partager</button><a class="btn" id="siteBtn" href="https://fczcreations.github.io/harmo-tabs/" target="_blank" rel="noopener" data-i18n="promo.site">Site et aide</a><a class="btn" id="contactBtn" href="mailto:fczcreations@proton.me?subject=Harmo%20Tabs" data-i18n="promo.contact">✉ Contact</a></div></div>
+      <div class="donate" id="donateBox" hidden><span data-i18n="donate.text">Harmo Tabs est gratuit.</span><a class="btn" id="donateBtn" href="#" target="_blank" rel="noopener" data-i18n="donate.btn">☕ Offrir un café</a></div>
     </div>
     <div class="fonts" id="fontsWeb">
       <span data-i18n="fonts.web">Excel a besoin des polices installées sur l'ordinateur (une seule fois : clic droit sur le fichier, puis « Installer »). Le PDF les contient déjà.</span>
@@ -310,16 +313,26 @@ fr: {
   "share.dialog": "Enregistrer ou envoyer « {f} »",
   "msg.savedIn": "Enregistré dans {dir} : {f}", "msg.shareBtn": "Partager", "msg.savedAs": "Enregistré : {f}", "about.title": "À propos et licences", "about.text": "Harmo Tabs · FCZ creations. Police Harmonica © Florian Coutaz. Polices Cinzel Decorative (© 2012 Natanael Gama, nom de police réservé « Cinzel ») et Cormorant Garamond (© 2015 The Cormorant Project Authors, version adaptée) sous licence SIL Open Font License 1.1 :",
   "sig.text": "Créé avec Harmo Tabs · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "L'export Excel est gratuit dans la version Windows, et inclus dans Harmo Tabs Pro sur Android.",
+  "lock.badge": "appli",
+  "lock.xlsx.web": "L'export Excel est gratuit dans l'appli Android et la version Windows.",
   "lock.xlsx.android": "L'export Excel fait partie de Harmo Tabs Pro.",
-  "lock.c16.web": "Le chromatique 16 trous est disponible dans la version Windows gratuite et dans Harmo Tabs Pro sur Android.",
+  "lock.c16.web": "Le chromatique 16 trous est disponible gratuitement dans l'appli Android et la version Windows.",
   "lock.c16.android": "Le chromatique 16 trous fait partie de Harmo Tabs Pro.",
   "lock.win": "Télécharger la version Windows",
-  "lock.xlsx.btn": "Fichier Excel : version Windows ou Pro",
-  "donate.btn": "Soutenir Harmo Tabs (don)",
-  "donate.text": "Harmo Tabs est gratuit. S'il vous rend service, vous pouvez soutenir son développement par un don.",
-  "prem.features": "Pro : sans publicité, sans signature, export Excel et chromatique 16 trous."
+  "lock.xlsx.btn": "Fichier Excel : appli Android ou Windows",
+  "donate.btn": "☕ Offrir un café",
+  "donate.text": "Harmo Tabs est gratuit et sans publicité. S'il vous rend service, vous pouvez soutenir son créateur.",
+  "prem.features": "Pro : sans publicité, sans signature, export Excel et chromatique 16 trous.",
+  "promo.text": "Harmo Tabs vous plaît ? Faites-le connaître :",
+  "promo.rate": "★ Noter l'appli",
+  "promo.share": "Partager",
+  "promo.site": "Site et aide",
+  "promo.contact": "✉ Contact",
+  "promo.copied": "Lien copié : {u}",
+  "promo.shareText": "Harmo Tabs : transforme tes fichiers MIDI et karaoké en tablatures d'harmonica. Gratuit et sans pub !",
+  "rate.ask": "Harmo Tabs vous rend service ? Une note sur Google Play l'aide beaucoup à se faire connaître.",
+  "rate.later": "Plus tard",
+  "lock.play": "Télécharger sur Google Play"
 },
 en: {
   "app.title": "Harmo Tabs",
@@ -364,16 +377,26 @@ en: {
   "share.dialog": "Save or send “{f}”",
   "msg.savedIn": "Saved to {dir}: {f}", "msg.shareBtn": "Share", "msg.savedAs": "Saved: {f}", "about.title": "About and licences", "about.text": "Harmo Tabs · FCZ creations. Harmonica font © Florian Coutaz. Cinzel Decorative (© 2012 Natanael Gama, Reserved Font Name “Cinzel”) and Cormorant Garamond (© 2015 The Cormorant Project Authors, adapted version) fonts under the SIL Open Font License 1.1:",
   "sig.text": "Made with Harmo Tabs · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "Excel export is free in the Windows version and included in Harmo Tabs Pro on Android.",
+  "lock.badge": "app",
+  "lock.xlsx.web": "Excel export is free in the Android app and the Windows version.",
   "lock.xlsx.android": "Excel export is part of Harmo Tabs Pro.",
-  "lock.c16.web": "The 16-hole chromatic is available in the free Windows version and in Harmo Tabs Pro on Android.",
+  "lock.c16.web": "The 16-hole chromatic is available for free in the Android app and the Windows version.",
   "lock.c16.android": "The 16-hole chromatic is part of Harmo Tabs Pro.",
   "lock.win": "Download the Windows version",
-  "lock.xlsx.btn": "Excel file: Windows version or Pro",
-  "donate.btn": "Support Harmo Tabs (donate)",
-  "donate.text": "Harmo Tabs is free. If it helps you, you can support its development with a donation.",
-  "prem.features": "Pro: no ads, no signature, Excel export and 16-hole chromatic."
+  "lock.xlsx.btn": "Excel file: Android or Windows app",
+  "donate.btn": "☕ Buy me a coffee",
+  "donate.text": "Harmo Tabs is free and ad-free. If it helps you, you can support its creator.",
+  "prem.features": "Pro: no ads, no signature, Excel export and 16-hole chromatic.",
+  "promo.text": "Enjoying Harmo Tabs? Spread the word:",
+  "promo.rate": "★ Rate the app",
+  "promo.share": "Share",
+  "promo.site": "Website & help",
+  "promo.contact": "✉ Contact",
+  "promo.copied": "Link copied: {u}",
+  "promo.shareText": "Harmo Tabs: turn MIDI and karaoke files into harmonica tabs. Free, no ads!",
+  "rate.ask": "Is Harmo Tabs useful to you? A rating on Google Play really helps it get known.",
+  "rate.later": "Later",
+  "lock.play": "Get it on Google Play"
 },
 es: {
   "app.title": "Harmo Tabs",
@@ -418,16 +441,26 @@ es: {
   "share.dialog": "Guardar o enviar «{f}»",
   "msg.savedIn": "Guardado en {dir}: {f}", "msg.shareBtn": "Compartir", "msg.savedAs": "Guardado: {f}", "about.title": "Acerca de y licencias", "about.text": "Harmo Tabs · FCZ creations. Fuente Harmonica © Florian Coutaz. Fuentes Cinzel Decorative (© 2012 Natanael Gama, nombre de fuente reservado «Cinzel») y Cormorant Garamond (© 2015 The Cormorant Project Authors, versión adaptada) con licencia SIL Open Font License 1.1:",
   "sig.text": "Creado con Harmo Tabs · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "La exportación a Excel es gratuita en la versión para Windows e incluida en Harmo Tabs Pro en Android.",
+  "lock.badge": "app",
+  "lock.xlsx.web": "La exportación a Excel es gratis en la app para Android y en la versión para Windows.",
   "lock.xlsx.android": "La exportación a Excel forma parte de Harmo Tabs Pro.",
-  "lock.c16.web": "La cromática de 16 celdas está disponible en la versión gratuita para Windows y en Harmo Tabs Pro en Android.",
+  "lock.c16.web": "La cromática de 16 celdas está disponible gratis en la app para Android y en la versión para Windows.",
   "lock.c16.android": "La cromática de 16 celdas forma parte de Harmo Tabs Pro.",
   "lock.win": "Descargar la versión para Windows",
-  "lock.xlsx.btn": "Archivo Excel: versión Windows o Pro",
-  "donate.btn": "Apoyar Harmo Tabs (donación)",
-  "donate.text": "Harmo Tabs es gratis. Si te resulta útil, puedes apoyar su desarrollo con una donación.",
-  "prem.features": "Pro: sin anuncios, sin firma, exportación a Excel y cromática de 16 celdas."
+  "lock.xlsx.btn": "Archivo Excel: app Android o Windows",
+  "donate.btn": "☕ Invítame a un café",
+  "donate.text": "Harmo Tabs es gratis y sin anuncios. Si te resulta útil, puedes apoyar a su creador.",
+  "prem.features": "Pro: sin anuncios, sin firma, exportación a Excel y cromática de 16 celdas.",
+  "promo.text": "¿Te gusta Harmo Tabs? Dalo a conocer:",
+  "promo.rate": "★ Valorar la app",
+  "promo.share": "Compartir",
+  "promo.site": "Web y ayuda",
+  "promo.contact": "✉ Contacto",
+  "promo.copied": "Enlace copiado: {u}",
+  "promo.shareText": "Harmo Tabs: convierte archivos MIDI y karaoke en tablaturas de armónica. ¡Gratis y sin anuncios!",
+  "rate.ask": "¿Te resulta útil Harmo Tabs? Una valoración en Google Play le ayuda mucho a darse a conocer.",
+  "rate.later": "Más tarde",
+  "lock.play": "Disponible en Google Play"
 },
 pt: {
   "app.title": "Harmo Tabs",
@@ -472,16 +505,26 @@ pt: {
   "share.dialog": "Salvar ou enviar “{f}”",
   "msg.savedIn": "Salvo em {dir}: {f}", "msg.shareBtn": "Compartilhar", "msg.savedAs": "Salvo: {f}", "about.title": "Sobre e licenças", "about.text": "Harmo Tabs · FCZ creations. Fonte Harmonica © Florian Coutaz. Fontes Cinzel Decorative (© 2012 Natanael Gama, nome de fonte reservado “Cinzel”) e Cormorant Garamond (© 2015 The Cormorant Project Authors, versão adaptada) sob a licença SIL Open Font License 1.1:",
   "sig.text": "Criado com Harmo Tabs · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "A exportação para Excel é grátis na versão para Windows e incluída no Harmo Tabs Pro no Android.",
+  "lock.badge": "app",
+  "lock.xlsx.web": "A exportação para Excel é grátis no app Android e na versão para Windows.",
   "lock.xlsx.android": "A exportação para Excel faz parte do Harmo Tabs Pro.",
-  "lock.c16.web": "A cromática de 16 furos está disponível na versão grátis para Windows e no Harmo Tabs Pro no Android.",
+  "lock.c16.web": "A cromática de 16 furos está disponível de graça no app Android e na versão para Windows.",
   "lock.c16.android": "A cromática de 16 furos faz parte do Harmo Tabs Pro.",
   "lock.win": "Baixar a versão para Windows",
-  "lock.xlsx.btn": "Arquivo Excel: versão Windows ou Pro",
-  "donate.btn": "Apoiar o Harmo Tabs (doação)",
-  "donate.text": "O Harmo Tabs é grátis. Se ele for útil para você, apoie o desenvolvimento com uma doação.",
-  "prem.features": "Pro: sem anúncios, sem assinatura, exportação para Excel e cromática de 16 furos."
+  "lock.xlsx.btn": "Arquivo Excel: app Android ou Windows",
+  "donate.btn": "☕ Me pague um café",
+  "donate.text": "O Harmo Tabs é grátis e sem anúncios. Se ele for útil para você, apoie o criador.",
+  "prem.features": "Pro: sem anúncios, sem assinatura, exportação para Excel e cromática de 16 furos.",
+  "promo.text": "Gostou do Harmo Tabs? Divulgue:",
+  "promo.rate": "★ Avaliar o app",
+  "promo.share": "Compartilhar",
+  "promo.site": "Site e ajuda",
+  "promo.contact": "✉ Contato",
+  "promo.copied": "Link copiado: {u}",
+  "promo.shareText": "Harmo Tabs: transforme arquivos MIDI e karaokê em tablaturas de gaita. Grátis e sem anúncios!",
+  "rate.ask": "O Harmo Tabs é útil para você? Uma avaliação no Google Play ajuda muito a divulgá-lo.",
+  "rate.later": "Mais tarde",
+  "lock.play": "Baixar no Google Play"
 },
 de: {
   "app.title": "Harmo Tabs",
@@ -526,16 +569,26 @@ de: {
   "share.dialog": "„{f}“ speichern oder senden",
   "msg.savedIn": "Gespeichert in {dir}: {f}", "msg.shareBtn": "Teilen", "msg.savedAs": "Gespeichert: {f}", "about.title": "Info und Lizenzen", "about.text": "Harmo Tabs · FCZ creations. Schrift Harmonica © Florian Coutaz. Schriften Cinzel Decorative (© 2012 Natanael Gama, reservierter Schriftname „Cinzel“) und Cormorant Garamond (© 2015 The Cormorant Project Authors, angepasste Fassung) unter der SIL Open Font License 1.1:",
   "sig.text": "Erstellt mit Harmo Tabs · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "Der Excel-Export ist in der Windows-Version kostenlos und in Harmo Tabs Pro für Android enthalten.",
+  "lock.badge": "App",
+  "lock.xlsx.web": "Der Excel-Export ist in der Android-App und der Windows-Version kostenlos.",
   "lock.xlsx.android": "Der Excel-Export ist Teil von Harmo Tabs Pro.",
-  "lock.c16.web": "Die chromatische Mundharmonika mit 16 Kanzellen gibt es in der kostenlosen Windows-Version und in Harmo Tabs Pro für Android.",
+  "lock.c16.web": "Die chromatische Mundharmonika mit 16 Kanzellen gibt es kostenlos in der Android-App und der Windows-Version.",
   "lock.c16.android": "Die chromatische Mundharmonika mit 16 Kanzellen ist Teil von Harmo Tabs Pro.",
   "lock.win": "Windows-Version herunterladen",
-  "lock.xlsx.btn": "Excel-Datei: Windows-Version oder Pro",
-  "donate.btn": "Harmo Tabs unterstützen (Spende)",
-  "donate.text": "Harmo Tabs ist kostenlos. Wenn es Ihnen hilft, können Sie die Entwicklung mit einer Spende unterstützen.",
-  "prem.features": "Pro: keine Werbung, keine Signatur, Excel-Export und Chromatisch mit 16 Kanzellen."
+  "lock.xlsx.btn": "Excel-Datei: Android- oder Windows-App",
+  "donate.btn": "☕ Einen Kaffee spendieren",
+  "donate.text": "Harmo Tabs ist kostenlos und werbefrei. Wenn es Ihnen hilft, können Sie den Entwickler unterstützen.",
+  "prem.features": "Pro: keine Werbung, keine Signatur, Excel-Export und Chromatisch mit 16 Kanzellen.",
+  "promo.text": "Gefällt Ihnen Harmo Tabs? Erzählen Sie davon:",
+  "promo.rate": "★ App bewerten",
+  "promo.share": "Teilen",
+  "promo.site": "Website & Hilfe",
+  "promo.contact": "✉ Kontakt",
+  "promo.copied": "Link kopiert: {u}",
+  "promo.shareText": "Harmo Tabs: verwandelt MIDI- und Karaoke-Dateien in Mundharmonika-Tabs. Kostenlos und ohne Werbung!",
+  "rate.ask": "Ist Harmo Tabs nützlich für Sie? Eine Bewertung bei Google Play hilft sehr, es bekannter zu machen.",
+  "rate.later": "Später",
+  "lock.play": "Bei Google Play laden"
 },
 it: {
   "app.title": "Harmo Tabs",
@@ -580,16 +633,26 @@ it: {
   "share.dialog": "Salva o invia «{f}»",
   "msg.savedIn": "Salvato in {dir}: {f}", "msg.shareBtn": "Condividi", "msg.savedAs": "Salvato: {f}", "about.title": "Informazioni e licenze", "about.text": "Harmo Tabs · FCZ creations. Font Harmonica © Florian Coutaz. Font Cinzel Decorative (© 2012 Natanael Gama, nome di font riservato «Cinzel») e Cormorant Garamond (© 2015 The Cormorant Project Authors, versione adattata) con licenza SIL Open Font License 1.1:",
   "sig.text": "Creato con Harmo Tabs · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "L'esportazione in Excel è gratuita nella versione per Windows e inclusa in Harmo Tabs Pro su Android.",
+  "lock.badge": "app",
+  "lock.xlsx.web": "L'esportazione in Excel è gratuita nell'app Android e nella versione Windows.",
   "lock.xlsx.android": "L'esportazione in Excel fa parte di Harmo Tabs Pro.",
-  "lock.c16.web": "La cromatica a 16 fori è disponibile nella versione gratuita per Windows e in Harmo Tabs Pro su Android.",
+  "lock.c16.web": "La cromatica a 16 fori è disponibile gratis nell'app Android e nella versione Windows.",
   "lock.c16.android": "La cromatica a 16 fori fa parte di Harmo Tabs Pro.",
   "lock.win": "Scarica la versione per Windows",
-  "lock.xlsx.btn": "File Excel: versione Windows o Pro",
-  "donate.btn": "Sostieni Harmo Tabs (donazione)",
-  "donate.text": "Harmo Tabs è gratuito. Se ti è utile, puoi sostenerne lo sviluppo con una donazione.",
-  "prem.features": "Pro: niente pubblicità, niente firma, esportazione in Excel e cromatica a 16 fori."
+  "lock.xlsx.btn": "File Excel: app Android o Windows",
+  "donate.btn": "☕ Offrimi un caffè",
+  "donate.text": "Harmo Tabs è gratuito e senza pubblicità. Se ti è utile, puoi sostenere il suo creatore.",
+  "prem.features": "Pro: niente pubblicità, niente firma, esportazione in Excel e cromatica a 16 fori.",
+  "promo.text": "Ti piace Harmo Tabs? Fallo conoscere:",
+  "promo.rate": "★ Valuta l'app",
+  "promo.share": "Condividi",
+  "promo.site": "Sito e aiuto",
+  "promo.contact": "✉ Contatti",
+  "promo.copied": "Link copiato: {u}",
+  "promo.shareText": "Harmo Tabs: trasforma file MIDI e karaoke in tablature per armonica. Gratis e senza pubblicità!",
+  "rate.ask": "Harmo Tabs ti è utile? Una valutazione su Google Play lo aiuta molto a farsi conoscere.",
+  "rate.later": "Più tardi",
+  "lock.play": "Scarica da Google Play"
 },
 ru: {
   "app.title": "Harmo Tabs",
@@ -635,16 +698,26 @@ ru: {
   "share.dialog": "Сохранить или отправить «{f}»",
   "msg.savedIn": "Сохранено в {dir}: {f}", "msg.shareBtn": "Поделиться", "msg.savedAs": "Сохранено: {f}", "about.title": "О приложении и лицензии", "about.text": "Harmo Tabs · FCZ creations. Шрифт Harmonica © Florian Coutaz. Шрифты Cinzel Decorative (© 2012 Natanael Gama, зарезервированное имя шрифта «Cinzel») и Cormorant Garamond (© 2015 The Cormorant Project Authors, адаптированная версия) распространяются по лицензии SIL Open Font License 1.1:",
   "sig.text": "Создано в Harmo Tabs · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "Экспорт в Excel бесплатен в версии для Windows и входит в Harmo Tabs Pro для Android.",
+  "lock.badge": "прил.",
+  "lock.xlsx.web": "Экспорт в Excel бесплатен в приложении для Android и в версии для Windows.",
   "lock.xlsx.android": "Экспорт в Excel входит в Harmo Tabs Pro.",
-  "lock.c16.web": "Хроматическая гармоника на 16 отверстий доступна в бесплатной версии для Windows и в Harmo Tabs Pro для Android.",
+  "lock.c16.web": "Хроматическая гармоника на 16 отверстий бесплатно доступна в приложении для Android и в версии для Windows.",
   "lock.c16.android": "Хроматическая гармоника на 16 отверстий входит в Harmo Tabs Pro.",
   "lock.win": "Скачать версию для Windows",
-  "lock.xlsx.btn": "Файл Excel: версия для Windows или Pro",
-  "donate.btn": "Поддержать Harmo Tabs (пожертвование)",
-  "donate.text": "Harmo Tabs бесплатен. Если он вам полезен, вы можете поддержать разработку пожертвованием.",
-  "prem.features": "Pro: без рекламы, без подписи, экспорт в Excel и хроматическая на 16 отверстий."
+  "lock.xlsx.btn": "Файл Excel: приложение для Android или Windows",
+  "donate.btn": "☕ Угостить кофе",
+  "donate.text": "Harmo Tabs бесплатен и без рекламы. Если он вам полезен, вы можете поддержать автора.",
+  "prem.features": "Pro: без рекламы, без подписи, экспорт в Excel и хроматическая на 16 отверстий.",
+  "promo.text": "Нравится Harmo Tabs? Расскажите о нём:",
+  "promo.rate": "★ Оценить приложение",
+  "promo.share": "Поделиться",
+  "promo.site": "Сайт и помощь",
+  "promo.contact": "✉ Написать",
+  "promo.copied": "Ссылка скопирована: {u}",
+  "promo.shareText": "Harmo Tabs: превращает файлы MIDI и караоке в табулатуры для губной гармоники. Бесплатно и без рекламы!",
+  "rate.ask": "Harmo Tabs вам полезен? Оценка в Google Play очень помогает ему стать известнее.",
+  "rate.later": "Позже",
+  "lock.play": "Скачать в Google Play"
 },
 ja: {
   "app.title": "Harmo Tabs",
@@ -689,16 +762,26 @@ ja: {
   "share.dialog": "「{f}」を保存または送信",
   "msg.savedIn": "{dir} に保存しました：{f}", "msg.shareBtn": "共有", "msg.savedAs": "保存しました：{f}", "about.title": "このアプリとライセンス", "about.text": "Harmo Tabs · FCZ creations。Harmonica フォント © Florian Coutaz。Cinzel Decorative（© 2012 Natanael Gama、予約フォント名「Cinzel」）と Cormorant Garamond（© 2015 The Cormorant Project Authors、改変版）は SIL Open Font License 1.1 のもとで提供されています：",
   "sig.text": "Harmo Tabs で作成 · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "Excel書き出しは、Windows版では無料、Android版では Harmo Tabs Pro に含まれます。",
+  "lock.badge": "アプリ",
+  "lock.xlsx.web": "Excel 書き出しは Android アプリと Windows 版で無料で使えます。",
   "lock.xlsx.android": "Excel書き出しは Harmo Tabs Pro の機能です。",
-  "lock.c16.web": "16穴クロマチックは、無料のWindows版と、Android版の Harmo Tabs Pro で使えます。",
+  "lock.c16.web": "16穴クロマチックは Android アプリと Windows 版で無料で使えます。",
   "lock.c16.android": "16穴クロマチックは Harmo Tabs Pro の機能です。",
   "lock.win": "Windows版をダウンロード",
-  "lock.xlsx.btn": "Excelファイル：Windows版またはPro",
-  "donate.btn": "Harmo Tabs を応援する（寄付）",
-  "donate.text": "Harmo Tabs は無料です。お役に立てたら、寄付で開発を応援していただけます。",
-  "prem.features": "Pro：広告なし、署名なし、Excel書き出し、16穴クロマチック。"
+  "lock.xlsx.btn": "Excel ファイル：Android / Windows アプリ",
+  "donate.btn": "☕ コーヒーをおごる",
+  "donate.text": "Harmo Tabs は無料・広告なしです。お役に立てたら、作者を応援していただけます。",
+  "prem.features": "Pro：広告なし、署名なし、Excel書き出し、16穴クロマチック。",
+  "promo.text": "Harmo Tabs を気に入ったら、広めてください：",
+  "promo.rate": "★ アプリを評価",
+  "promo.share": "共有",
+  "promo.site": "サイトとヘルプ",
+  "promo.contact": "✉ お問い合わせ",
+  "promo.copied": "リンクをコピーしました：{u}",
+  "promo.shareText": "Harmo Tabs：MIDI・カラオケファイルをハーモニカのタブ譜に変換。無料・広告なし！",
+  "rate.ask": "Harmo Tabs はお役に立っていますか？ Google Play での評価は、アプリを広めるのにとても役立ちます。",
+  "rate.later": "あとで",
+  "lock.play": "Google Play で入手"
 },
 zh: {
   "app.title": "Harmo Tabs",
@@ -743,16 +826,26 @@ zh: {
   "share.dialog": "保存或发送“{f}”",
   "msg.savedIn": "已保存到 {dir}：{f}", "msg.shareBtn": "分享", "msg.savedAs": "已保存：{f}", "about.title": "关于与许可", "about.text": "Harmo Tabs · FCZ creations。Harmonica 字体 © Florian Coutaz。Cinzel Decorative（© 2012 Natanael Gama，保留字体名称“Cinzel”）和 Cormorant Garamond（© 2015 The Cormorant Project Authors，改编版本）字体采用 SIL Open Font License 1.1 授权：",
   "sig.text": "由 Harmo Tabs 生成 · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "Excel 导出在 Windows 版中免费，在安卓版的 Harmo Tabs Pro 中提供。",
+  "lock.badge": "应用",
+  "lock.xlsx.web": "安卓应用和 Windows 版可免费导出 Excel。",
   "lock.xlsx.android": "Excel 导出属于 Harmo Tabs Pro 功能。",
-  "lock.c16.web": "16 孔半音阶口琴可在免费的 Windows 版和安卓版的 Harmo Tabs Pro 中使用。",
+  "lock.c16.web": "16 孔半音阶口琴可在安卓应用和 Windows 版中免费使用。",
   "lock.c16.android": "16 孔半音阶口琴属于 Harmo Tabs Pro 功能。",
   "lock.win": "下载 Windows 版",
-  "lock.xlsx.btn": "Excel 文件：Windows 版或 Pro",
-  "donate.btn": "支持 Harmo Tabs（捐赠）",
-  "donate.text": "Harmo Tabs 是免费的。如果它对你有帮助，欢迎捐赠支持开发。",
-  "prem.features": "Pro：无广告、无署名、Excel 导出和 16 孔半音阶口琴。"
+  "lock.xlsx.btn": "Excel 文件：安卓或 Windows 应用",
+  "donate.btn": "☕ 请我喝杯咖啡",
+  "donate.text": "Harmo Tabs 免费且无广告。如果它对你有帮助，欢迎支持作者。",
+  "prem.features": "Pro：无广告、无署名、Excel 导出和 16 孔半音阶口琴。",
+  "promo.text": "喜欢 Harmo Tabs？推荐给朋友：",
+  "promo.rate": "★ 给应用评分",
+  "promo.share": "分享",
+  "promo.site": "网站与帮助",
+  "promo.contact": "✉ 联系",
+  "promo.copied": "链接已复制：{u}",
+  "promo.shareText": "Harmo Tabs：把 MIDI 和卡拉OK文件转换成口琴谱。免费且无广告！",
+  "rate.ask": "Harmo Tabs 对你有帮助吗？在 Google Play 上评分能大大帮助它被更多人知道。",
+  "rate.later": "以后再说",
+  "lock.play": "在 Google Play 下载"
 },
 ko: {
   "app.title": "Harmo Tabs",
@@ -797,16 +890,26 @@ ko: {
   "share.dialog": "\"{f}\" 저장 또는 보내기",
   "msg.savedIn": "{dir}에 저장됨: {f}", "msg.shareBtn": "공유", "msg.savedAs": "저장됨: {f}", "about.title": "정보 및 라이선스", "about.text": "Harmo Tabs · FCZ creations. Harmonica 글꼴 © Florian Coutaz. Cinzel Decorative(© 2012 Natanael Gama, 예약 글꼴 이름 “Cinzel”) 및 Cormorant Garamond(© 2015 The Cormorant Project Authors, 수정 버전) 글꼴은 SIL Open Font License 1.1에 따라 제공됩니다:",
   "sig.text": "Harmo Tabs로 제작 · fczcreations.github.io/harmo-tabs",
-  "lock.badge": "Pro",
-  "lock.xlsx.web": "Excel 내보내기는 Windows 버전에서 무료이며, Android에서는 Harmo Tabs Pro에 포함됩니다.",
+  "lock.badge": "앱",
+  "lock.xlsx.web": "Excel 내보내기는 Android 앱과 Windows 버전에서 무료입니다.",
   "lock.xlsx.android": "Excel 내보내기는 Harmo Tabs Pro 기능입니다.",
-  "lock.c16.web": "16홀 크로매틱은 무료 Windows 버전과 Android의 Harmo Tabs Pro에서 사용할 수 있습니다.",
+  "lock.c16.web": "16홀 크로매틱은 Android 앱과 Windows 버전에서 무료로 사용할 수 있습니다.",
   "lock.c16.android": "16홀 크로매틱은 Harmo Tabs Pro 기능입니다.",
   "lock.win": "Windows 버전 다운로드",
-  "lock.xlsx.btn": "Excel 파일: Windows 버전 또는 Pro",
-  "donate.btn": "Harmo Tabs 후원하기 (기부)",
-  "donate.text": "Harmo Tabs는 무료입니다. 도움이 되셨다면 기부로 개발을 후원해 주세요.",
-  "prem.features": "Pro: 광고 없음, 서명 없음, Excel 내보내기, 16홀 크로매틱."
+  "lock.xlsx.btn": "Excel 파일: Android 또는 Windows 앱",
+  "donate.btn": "☕ 커피 한 잔 사 주기",
+  "donate.text": "Harmo Tabs는 무료이며 광고가 없습니다. 도움이 되셨다면 제작자를 응원해 주세요.",
+  "prem.features": "Pro: 광고 없음, 서명 없음, Excel 내보내기, 16홀 크로매틱.",
+  "promo.text": "Harmo Tabs가 마음에 드세요? 널리 알려 주세요:",
+  "promo.rate": "★ 앱 평가하기",
+  "promo.share": "공유",
+  "promo.site": "웹사이트 및 도움말",
+  "promo.contact": "✉ 문의",
+  "promo.copied": "링크를 복사했습니다: {u}",
+  "promo.shareText": "Harmo Tabs: MIDI와 노래방 파일을 하모니카 탭 악보로 변환. 무료, 광고 없음!",
+  "rate.ask": "Harmo Tabs가 도움이 되나요? Google Play 평가는 앱을 알리는 데 큰 도움이 됩니다.",
+  "rate.later": "나중에",
+  "lock.play": "Google Play에서 받기"
 }
 };
 
@@ -1614,29 +1717,45 @@ function renderTracks(){
   $("track").value=S.stream;
 }
 const WIN_URL="https://github.com/fczcreations/fczcreations.github.io/releases/download/windows/Harmo-Tabs-portable.exe";
+const PLAY_ID="fr.fczcreations.tablatures";
+const PLAY_URL="https://play.google.com/store/apps/details?id="+PLAY_ID;
+const PLAY_LIVE=!!window.HARMO_PLAY_LIVE;        // le site l'active quand l'appli est publiée
+const SITE_URL="https://fczcreations.github.io/harmo-tabs/";
 const DONATE_URL=window.HARMO_DONATE_URL||"https://ko-fi.com/fczcreations";     // lien de don (masqué sur Android)
-function isPro(){try{return!!(window.harmonicaNative&&window.harmonicaNative.isPremium&&window.harmonicaNative.isPremium())}catch(e){return false}}
-function canExcel(){const p=platform();return p==="desktop"||(p==="android"&&isPro())}
+function canExcel(){return platform()!=="web"}   // Android et Windows : tout est gratuit
 function canC16(){return canExcel()}
-function withSignature(){return!(platform()==="android"&&isPro())}
+function withSignature(){return true}
 function showMsgHTML(h,kind){const m=$("msg");m.innerHTML=h;m.className="msg"+(kind?" "+kind:"")}
 function lockMsg(kind){
-  const pf=platform();
-  if(pf==="android"){showMsgHTML(esc(t("lock."+kind+".android"))+' <button type="button" class="btn" id="goPro" style="margin-left:6px;padding:3px 10px">'+esc(t("prem.buy"))+"</button>");
-    const b=$("goPro");if(b)b.addEventListener("click",()=>{if(window.harmonicaNative&&window.harmonicaNative.buyPro)window.harmonicaNative.buyPro()});}
-  else showMsgHTML(esc(t("lock."+kind+".web"))+' <a href="'+WIN_URL+'" target="_blank" rel="noopener">'+esc(t("lock.win"))+"</a>");
+  showMsgHTML(esc(t("lock."+kind+".web"))+' <a href="'+WIN_URL+'" target="_blank" rel="noopener">'+esc(t("lock.win"))+"</a>"+
+    (PLAY_LIVE?' · <a href="'+PLAY_URL+'" target="_blank" rel="noopener">'+esc(t("lock.play"))+"</a>":""));
 }
 function renderLocks(){
   const pre=platform()==="web"?"dl":"save";
   const x=$("dlXlsx");
   if(canExcel()){x.textContent=t(pre+".xlsx");x.classList.remove("locked")}
-  else{x.innerHTML=platform()==="android"?esc(t("save.xlsx"))+'<span class="probadge">'+esc(t("lock.badge"))+"</span>":esc(t("lock.xlsx.btn"));x.classList.add("locked")}
+  else{x.textContent=t("lock.xlsx.btn");x.classList.add("locked")}
   const c16=document.querySelector('#instr button[data-v="c16"] small');
   if(c16)c16.innerHTML=esc(t("holes",{n:16}))+(canC16()?"":'<span class="probadge">'+esc(t("lock.badge"))+"</span>");
   if(S.instr==="c16"&&!canC16()){S.instr="diato";for(const b of $("instr").children)b.setAttribute("aria-pressed",b.dataset.v==="diato")}
+  // dons : site et Windows seulement (règles de Google Play)
   const d=$("donateBox");d.hidden=!(DONATE_URL&&platform()!=="android");if(DONATE_URL)$("donateBtn").href=DONATE_URL;
+  $("rateBtn").hidden=platform()!=="android";
+  $("siteBtn").href=SITE_URL+LANG+"/";
 }
-document.addEventListener("harmo-pro",()=>{renderLocks();update()});
+async function shareApp(){
+  const pf=platform(),url=pf==="android"?PLAY_URL:SITE_URL+LANG+"/",txt=t("promo.shareText");
+  try{
+    if(pf==="android"&&window.harmonicaNative&&window.harmonicaNative.shareText){await window.harmonicaNative.shareText(txt,url);return}
+    if(navigator.share){await navigator.share({title:"Harmo Tabs",text:txt,url});return}
+  }catch(e){if(e&&e.name==="AbortError")return}
+  try{await navigator.clipboard.writeText(txt+" "+url);showMsg(t("promo.copied",{u:url}),"ok")}catch(e){showMsgHTML(esc(txt)+' <a href="'+url+'" target="_blank" rel="noopener">'+esc(url)+"</a>")}
+}
+function rateApp(){if(window.harmonicaNative&&window.harmonicaNative.openUrl)window.harmonicaNative.openUrl("market://details?id="+PLAY_ID,PLAY_URL);else window.open(PLAY_URL,"_blank","noopener")}
+$("shareAppBtn").addEventListener("click",shareApp);
+$("rateBtn").addEventListener("click",rateApp);
+$("siteBtn").addEventListener("click",e=>{if(window.harmonicaNative&&window.harmonicaNative.openUrl){e.preventDefault();window.harmonicaNative.openUrl($("siteBtn").href)}});
+$("contactBtn").addEventListener("click",e=>{if(window.harmonicaNative&&window.harmonicaNative.openUrl){e.preventDefault();window.harmonicaNative.openUrl($("contactBtn").href)}});
 function platform(){
   if(window.Capacitor&&window.Capacitor.isNativePlatform&&window.Capacitor.isNativePlatform())return"android";
   if(window.harmonicaApp)return"desktop";
@@ -1741,7 +1860,7 @@ async function buildXLSX(){
   const ws=wb.addWorksheet("Tablature",{views:[{showGridLines:false}],
     pageSetup:{paperSize:9,orientation:"portrait",fitToPage:true,fitToWidth:1,fitToHeight:0,horizontalCentered:true,
       margins:{left:0.5,right:0.5,top:0.6,bottom:0.6,header:0.3,footer:0.3}},
-    headerFooter:{oddFooter:(withSignature()&&platform()!=="desktop"?'&L&"Cormorant Garamond,Italic"&9'+t("sig.text").replace(/&/g,"&&"):'')+'&C&"Cormorant Garamond,Italic"&12&P / &N'}});
+    headerFooter:{oddFooter:'&C&"Cormorant Garamond,Italic"&12&P / &N'}});
   ws.columns=Array.from({length:ncol},()=>({width:3.9}));
   const thin={style:"thin",color:{argb:"FF000000"}};
   const ctr={horizontal:"center",vertical:"middle"};
